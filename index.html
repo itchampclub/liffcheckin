@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Check-In/Out Log</title>
+    <title>ITDEV.win</title>
   </head>
   <body>
     <center>
@@ -16,7 +16,7 @@
 <p>Click the button to check-in or check-out with your coordinates.</p>
 
 <button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button>
-<button type="button" class="btn btn-danger" onclick="getLocation()">Check-Out</button>
+<button type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button>
 
 <p id="demo"></p>
 </center>
@@ -56,7 +56,7 @@ function showPosition(position) {
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -68,6 +68,40 @@ var xmlhttp = new XMLHttpRequest();
 }
 
 
+
+///////////////////////////////
+
+
+function getLocationOut() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPositionOut);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPositionOut(position) {
+
+     liff.getProfile().then(function(profile) {
+            var uid = profile.userId;
+            var uname = profile.displayName;
+        var xos = liff.getOS();
+  x.innerHTML = "Lat: " + position.coords.latitude + 
+  "<br>Long: " + position.coords.longitude+ 
+  "<br>userId: " + uid+ 
+  "<br>displayName: " + uname+
+  "<br>your OS: " + xos;
+var xmlhttp = new XMLHttpRequest();
+        var theUrl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        xmlhttp.open('GET', theUrl);
+        xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var jsonResponse = JSON.parse(this.responseText);
+        }
+        alert(jsonResponse.desc);
+      }});  
+}
 
 
 
