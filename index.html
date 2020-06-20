@@ -39,12 +39,13 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
         }
         var checkx = jsonResponses.desc;
         alert(checkx);
-        if(checkx == "true"){
-          document.getElementById("cin").classList.remove('invisible');
+        if(checkx == "true2"){
   //document.getElementById("cout").classList.add('hidden');
-        }else{
+        }else if(checkx == "true1"){
           document.getElementById("cout").classList.remove('invisible');
-        }
+        }else{
+          document.getElementById("cin").classList.remove('invisible');
+            }
         }
       });  
 }
