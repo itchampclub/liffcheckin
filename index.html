@@ -14,8 +14,8 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>Click the button to check-in or check-out with your coordinates.</p>
-<div id="cin" class="hidden"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
-<div id="cout" class="hidden"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
+<div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
+<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
 
 <p id="demo"></p>
 </center>
@@ -39,10 +39,10 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
         }
         var checkx = jsonResponses.desc;
         if(checkx == "true"){
-  document.getElementById("cin").classList.remove('hidden');
+  document.getElementById("cin").classList.remove('invisible');
   //document.getElementById("cout").classList.add('hidden');
         }else{
-          document.getElementById("cout").classList.remove('hidden');
+          document.getElementById("cout").classList.remove('invisible');
         }
         }
       });  
