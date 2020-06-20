@@ -24,7 +24,6 @@
 <script>
 window.onload = function() {
   initializeLiff('1654370606-geWqlVLk');
-  checks();
 }
 
 
@@ -51,6 +50,11 @@ function initializeLiff(myLiffId) {
     liff
         .init({
             liffId: myLiffId
+        })
+        .then(() => {
+            checks();
+        })
+        .catch((err) => {
         });
 }
 
