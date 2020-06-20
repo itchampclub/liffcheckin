@@ -38,8 +38,9 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
             var jsonResponses = JSON.parse(this.responseText);
         }
         var checkx = jsonResponses.desc;
+        alert(checkx);
         if(checkx == "true"){
-  document.getElementById("cin").classList.remove('invisible');
+          document.getElementById("cin").classList.remove('invisible');
   //document.getElementById("cout").classList.add('hidden');
         }else{
           document.getElementById("cout").classList.remove('invisible');
