@@ -24,10 +24,21 @@
 <script>
 window.onload = function() {
   initializeLiff('1654370606-geWqlVLk');
-     liff.getProfile().then(function(profile) {
+  if(checks() = "true"){
+    alert("true");
+  }else{
+    alert("false");
+  }
+
+}
+
+
+function checks(){
+
+       liff.getProfile().then(function(profile) {
             var xuid = profile.userId;
 alert(xuid);
-/*var xmlhttps = new XMLHttpRequest();
+var xmlhttps = new XMLHttpRequest();
 var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?checkwithuid="+xuid;
         xmlhttps.open('GET', theUrls);
         xmlhttps.send();
@@ -35,9 +46,10 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
         if (this.readyState == 4 && this.status == 200) {
             var jsonResponses = JSON.parse(this.responseText);
         }
-        alert(jsonResponses.desc);
-        }*/});  
+        return jsonResponses.desc
+        }});  
 }
+
 
 function initializeLiff(myLiffId) {
     liff
