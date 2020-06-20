@@ -39,10 +39,10 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
         }
         var checkx = jsonResponses.desc;
         if(checkx == "true"){
-  document.getElementById("cin").classList.remove('visible');
+  document.getElementById("cin").classList.toggle('visible');
   //document.getElementById("cout").classList.add('hidden');
         }else{
-          document.getElementById("cout").classList.remove('visible');
+          document.getElementById("cout").classList.toggle('visible');
         }
         }
       });  
