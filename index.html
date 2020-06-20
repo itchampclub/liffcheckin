@@ -27,27 +27,16 @@ window.onload = function() {
 
 
 function checks(){
-       liff.getProfile().then(function(profile) {
-            var xuid = profile.userId;
-var xmlhttps = new XMLHttpRequest();
-var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?checkwithuid="+xuid;
-        xmlhttps.open('GET', theUrls);
-        xmlhttps.send();
-            xmlhttps.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var jsonResponses = JSON.parse(this.responseText);
-        }
-        var checkx = jsonResponses.desc;
-        alert(checkx);
-        if(checkx == "true2"){
-  //document.getElementById("cout").classList.add('hidden');
-        }else if(checkx == "true1"){
+
+var today = new Date();
+var hh = today.getHours();
+var mm = today.getMinutes(); 
+today = hh+''+mm;
+        if(today <= "830"){
           document.getElementById("cout").classList.remove('invisible');
         }else{
           document.getElementById("cin").classList.remove('invisible');
             }
-        }
-      });  
 }
 
 
