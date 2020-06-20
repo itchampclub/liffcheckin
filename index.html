@@ -25,6 +25,7 @@ window.onload = function() {
   initializeLiff('1654370606-geWqlVLk');
 }
 
+const xurl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec";
 
 function checks(){
 
@@ -77,7 +78,7 @@ function showPosition(position) {
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -114,7 +115,7 @@ function showPositionOut(position) {
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
