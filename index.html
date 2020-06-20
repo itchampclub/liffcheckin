@@ -29,7 +29,6 @@ window.onload = function() {
 function checks(){
        liff.getProfile().then(function(profile) {
             var xuid = profile.userId;
-alert(xuid);
 var xmlhttps = new XMLHttpRequest();
 var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvLPIMIeKiSPD4kswFJXznuGFE4/exec?checkwithuid="+xuid;
         xmlhttps.open('GET', theUrls);
@@ -42,7 +41,9 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
         if(checkx == "true"){
   document.getElementById("cin").classList.remove('visible');
   //document.getElementById("cout").classList.add('hidden');
-        }else{}
+        }else{
+          document.getElementById("cout").classList.remove('visible');
+        }
         }
       });  
 }
