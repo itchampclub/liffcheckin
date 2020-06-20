@@ -41,8 +41,11 @@ var theUrls = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0Ev
         if (this.readyState == 4 && this.status == 200) {
             var jsonResponses = JSON.parse(this.responseText);
         }
-        return jsonResponses.desc
+        var checkx = jsonResponses.desc;
+        return checkx
         }});  
+
+       alert(checkx);
 }
 
 
