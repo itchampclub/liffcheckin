@@ -31,11 +31,13 @@ function checks(){
 var today = new Date();
 var hh = today.getHours();
 var mm = today.getMinutes(); 
-today = hh+''+mm;
-        if(today <= "830"){
-          document.getElementById("cout").classList.remove('invisible');
-        }else{
+
+        if(hh <= 8 && mm <= 30){
           document.getElementById("cin").classList.remove('invisible');
+        }else if(hh >= 17 && mm >= 0){
+          document.getElementById("cout").classList.remove('invisible');
+            }else{
+alert("อยู่ในช่วงเวลา 08.00 - 17.00 ");           
             }
 }
 
