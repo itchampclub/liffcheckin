@@ -30,6 +30,7 @@ const xurl = "https://script.google.com/macros/s/AKfycbz-krIX4x26C_hIFECOy5i0EvL
 function checks(){
 
 var today = new Date();
+today.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
 var hh = today.getHours();
 var mm = today.getMinutes(); 
 
